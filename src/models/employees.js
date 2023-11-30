@@ -28,5 +28,3 @@ export const updateEmployee = async (id, employeeData) => {
 
 export const deleteEmployee = async (id) =>
   db.employee.delete({ where: { employeeId: id } })
-
-  //test
