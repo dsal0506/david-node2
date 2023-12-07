@@ -15,12 +15,12 @@ export const getEmployee = async (id) =>
 export const addEmployee = async (employeeData) =>
   db.employee.create({ data: { ...employeeData } })
 
-export const updateEmployee = async (id, employeeData) => {
+export const updateEmployee = async (id, employeeData, departmentId) => {
   const employee = await getEmployee(id)
   if (employee) {
     return db.employee.update({
       where: { employeeId: id },
-      data: { ...employee, ...employeeData, updatedAt: new Date() },
+      data: { ...employeeData, departmentId },
     })
   }
   return null
